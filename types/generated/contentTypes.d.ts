@@ -788,6 +788,41 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCourseListCourseList extends Schema.CollectionType {
+  collectionName: 'course_lists';
+  info: {
+    singularName: 'course-list';
+    pluralName: 'course-lists';
+    displayName: 'CourseList';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['basic', 'advance']>;
+    description: Attribute.RichText;
+    image: Attribute.Media;
+    Topics: Attribute.Component<'topic.topic', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-list.course-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-list.course-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSliderSlider extends Schema.CollectionType {
   collectionName: 'sliders';
   info: {
@@ -872,6 +907,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::course-list.course-list': ApiCourseListCourseList;
       'api::slider.slider': ApiSliderSlider;
       'api::video-course.video-course': ApiVideoCourseVideoCourse;
     }
