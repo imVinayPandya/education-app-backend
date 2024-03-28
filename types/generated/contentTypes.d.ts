@@ -829,15 +829,16 @@ export interface ApiCourseProgressCourseProgress extends Schema.CollectionType {
     singularName: 'course-progress';
     pluralName: 'course-progresses';
     displayName: 'CourseProgress';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    uid: Attribute.BigInteger;
     courseId: Attribute.BigInteger;
     courseContentId: Attribute.BigInteger;
     type: Attribute.String;
+    uid: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

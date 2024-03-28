@@ -4,16 +4,14 @@
   "info": {
     "singularName": "course-progress",
     "pluralName": "course-progresses",
-    "displayName": "CourseProgress"
+    "displayName": "CourseProgress",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "uid": {
-      "type": "biginteger"
-    },
     "courseId": {
       "type": "biginteger"
     },
@@ -21,6 +19,9 @@
       "type": "biginteger"
     },
     "type": {
+      "type": "string"
+    },
+    "uid": {
       "type": "string"
     }
   }
